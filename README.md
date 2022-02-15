@@ -19,6 +19,10 @@ After running these commands, please log out of OnDemand, and then log back in. 
 
 The version number should now be 2.18.0.
 
+## Personal Access Tokens
+
+Learn how to [create a personal access token for GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+
 ## Global Configuration
   - When you perform operations with git, it will keep track of who you are. It does this so that things stay organized in large projects.
   - To provide git with your username, use `git config --global user.name "<YOUR_NAME>"`
