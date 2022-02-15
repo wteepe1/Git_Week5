@@ -22,7 +22,7 @@ The version number should now be 2.18.0.
 ## Global Configuration
   - When you perform operations with git, it will keep track of who you are. It does this so that things stay organized in large projects.
   - To provide git with your username, use `git config --global user.name "<YOUR_NAME>"`
-    - In general, whenever I write <SOMETHING> I intend for you to substitute that text
+    - In general, whenever I write \<SOMETHING\> I intend for you to substitute that text
   - To provide git with your email address (optional), use `git config --global user.email <YOUR_EMAIL_ADDRESS>`
 
 
