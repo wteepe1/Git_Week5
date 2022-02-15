@@ -37,11 +37,15 @@ Learn how to [create a personal access token for GitHub](https://docs.github.com
   - `git init` - Initializes the repository
   - Using `ls -a`, take another look at the project directory (now also a repository)
     - What's different?
+     	- added a .git folder
+     	- all information on what you have done is in .git
+     	- ls -a shows .git
+     	- ls just shows outline.txt
     - Explore a bit with `cd` and `cat`
 
 ## 'Git'ting started
   - Git projects operate on a branching model. Branches keep track of different versions of a project, without having to store completely independent copies.
-  - The most basic way to work with git is to use only a single branch, usually called "Main". As changes are made, they are all committed (sort of like git's version of saving) to the Main branch.
+  - The most basic way to work with git is to use only a single branch, usually called "Main or Master". As changes are made, they are all committed (sort of like git's version of saving) to the Main branch.
   - `git` is the actual program that handles everything behind the scenes for us
     - To accomplish different things, we will pass options to git
   - `git status` - How do things look?
