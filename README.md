@@ -25,7 +25,6 @@ The version number should now be 2.18.0.
     - In general, whenever I write \<SOMETHING\> I intend for you to substitute that text
   - To provide git with your email address (optional), use `git config --global user.email <YOUR_EMAIL_ADDRESS>`
 
-
 ## Creating a repository
   - `mkdir myProject` - Creates the directory for a project
   - `cd myProject` - Change into project directory
@@ -81,3 +80,21 @@ The version number should now be 2.18.0.
     - Now we add our file back to the repository - `git commit -m "Adding important stuff back again"`
   - There's one other option for fixing our mistake, if we hadn't already used checkout. Instead, we could directly undo the entire commit where we mistakenly deleted the important file. Note that this is different than using checkout, because it automatically creates a new commit that undoes the previous one and it applies to the entire commit.
     - `git revert <BAD_COMMIT_HASH>`
+
+## Branching
+  - So far, we have only been discussing git commands in the context of a _single version_ of a repository. However, one of the most powerful features of git is its ability to handle branches, or different versions of a project.
+  - By creating different branches, you can try changes to a project that don't affect the primary/main version. If the changes look good, you can then merge them back into the main version (Main branch).
+  - `git branch featureOne` will create a new branch for your project.
+  - `git branch` - Running this command without a name for a new branch just gives you a list of the branches that exist for your project. Note that you have a new branch, but you are still focused on Main.
+  - `git status` - Looking at your status will also show the current branch that you're on.
+  - To switch branches, and make changes that are specific to your feature branch, use `git checkout featureOne`.
+  - Now verify that you've actually switched using either `git status` or `git branch`.
+  - Now let's make a change on our new branch. Use `touch featOneFile.txt` to create a new file that's related to feature one.
+  - Now we'll add it to the new branch by running `git add featOneFile.txt` and `git commit -m "Adding new file for feature one."`
+  - Now, take a look at the project using `git status` and `git log`.
+    - What do you notice about the commits we've made?
+  - Let's say our new file has successfully implemented our new feature and we want to merge it back into our Main branch. First, we need to switch back to our Main banch with `git checkout main`.
+  - Now, we can pull in the changes from our feature branch with `git merge feature One`.
+  - Since main now has all the changes we made in feature One, we can delete that feature branch - `git branch -d featureOne`
+  - Note that when you look at `git log --graph` now, it's as if the feature branch never existed. The changes made there are now seamlessly integrated into the main branch.
+
