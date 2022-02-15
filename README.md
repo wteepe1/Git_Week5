@@ -46,3 +46,38 @@ The version number should now be 2.18.0.
     - What is git keeping track of?
   - `git log` - See what commits have been made to this project
     - Since we haven't yet done anything with our repository, there is nothing yet to show in the log. First, we need to commit something.
+
+## Git Stages
+  - In order to keep track of the files associated with your project, you need to tell git to include them. Files that you associated with your repository are 'tracked'. In order to do this, use `git add`.
+    - `git add outline.txt`
+    - One advantage of this setup is that you can have files in your folder that are not tracked by git, if you're not ready to include them in your project.
+  - If you change a tracked file, git will automatically note the change. Try editing the outline file and then run `git status`. Note that staging the _addition_ of a new file and _changes_ to the file itself are different.
+    - To see what changes have been made, use `git diff`.
+  - Now to actually include our outline file (and any edits you've made to it) in the repository, we need to commit them. To commit everything in the staging area, we use `git commit -m <COMMIT_MESSAGE>`. The commit message should be short, but informative.
+    - What information is displayed after you commit?
+  - Now run `git log` again. What do you see?
+
+## Rolling back changes
+  - Now let's make another commit, where we simulate adding something very important to our repository.
+    - `echo "SUPER IMPORTANT TEXT" > important.txt`
+    - `git status`
+    - `git add important.txt`
+    - `git status`
+    - `git commit -m "Adding important.txt"`
+    - `git log`
+      - `git log --pretty=oneline`
+  - Now let's say that we make a silly mistake and delete our important file.
+    - `rm important.txt`
+    - `git add important.txt` - (We use add even though we've deleted the file. We're telling git to add the change.)
+    - `git commit -m "Accidentally deleting important thing"`
+  - Oh no! Now we've remembered that the thing was really important. Can we retrieve it?
+    - First, we take a look at our log - `git log --pretty=oneline --graph`
+      - Compare this output to workflow schematic above
+    - Find the last commit _before_ the important thing was deleted and copy the beginning of the unique hash.
+    - Use the git checkout command to go back in time and recover the 'deleted' file. `git checkout <PREVIOUS_COMMIT_HASH> important.txt`.
+    - Now take a look at the status of our files:
+      - Run `ls` in the working directory.
+      - `git status`
+    - Now we add our file back to the repository - `git commit -m "Adding important stuff back again"`
+  - There's one other option for fixing our mistake, if we hadn't already used checkout. Instead, we could directly undo the entire commit where we mistakenly deleted the important file. Note that this is different than using checkout, because it automatically creates a new commit that undoes the previous one and it applies to the entire commit.
+    - `git revert <BAD_COMMIT_HASH>`
