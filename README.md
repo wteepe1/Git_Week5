@@ -35,3 +35,14 @@ The version number should now be 2.18.0.
   - Using `ls -a`, take another look at the project directory (now also a repository)
     - What's different?
     - Explore a bit with `cd` and `cat`
+
+## 'Git'ting started
+  - Git projects operate on a branching model. Branches keep track of different versions of a project, without having to store completely independent copies.
+  - The most basic way to work with git is to use only a single branch, usually called "Main". As changes are made, they are all committed (sort of like git's version of saving) to the Main branch.
+  - `git` is the actual program that handles everything behind the scenes for us
+    - To accomplish different things, we will pass options to git
+  - `git status` - How do things look?
+    - Note the branch at the top
+    - What is git keeping track of?
+  - `git log` - See what commits have been made to this project
+    - Since we haven't yet done anything with our repository, there is nothing yet to show in the log. First, we need to commit something.
